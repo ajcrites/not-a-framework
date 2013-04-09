@@ -1,5 +1,7 @@
 # Not a Framework 0.0
 
+Master: [![Build Status](https://secure.travis-ci.org/ajcrites/not-a-framework.png?branch=master)](http://travis-ci.org/ajcrites/not-a-framework)
+
 Not-a-framework is a PHP Non-framework that focuses on
 code organization and flexibility.
 
