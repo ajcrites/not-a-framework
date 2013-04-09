@@ -1,0 +1,25 @@
+{
+    "name": "not-a-framework",
+    "description": "PHP Framework Framework",
+    "version": "0.0",
+    "license": "Unlicense",
+    "type": "framework",
+    "keywords": [
+        "framework"
+    ],
+    "authors": [
+        {
+            "name": "Andrew Crites",
+            "email": "explosion-pills@aysites.com",
+            "homepage": "http://explosion-pills.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    },
+    "autoload": {
+        "psr-0": {
+            "Naf": "src/"
+        }
+    }
+}

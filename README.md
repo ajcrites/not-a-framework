@@ -1,4 +1,4 @@
-# Not a Framework (pre-version)
+# Not a Framework 0.0
 
 Not-a-framework is a PHP Non-framework that focuses on
 code organization and flexibility.
