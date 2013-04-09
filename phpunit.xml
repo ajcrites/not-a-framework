@@ -1,0 +1,12 @@
+<phpunit
+    bootstrap="./test/config.php"
+    backupGlobals="false"
+    backupStaticAttributes="false"
+    colors="true">
+    <php><ini name="display_errors" value="1"/></php>
+    <testsuites>
+        <testsuite name="NaFtests">
+            <directory>test</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
