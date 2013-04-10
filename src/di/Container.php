@@ -31,7 +31,7 @@
  instance is pulled from the registry and used to create the `Controller` instance.
  */
 
-namespace Naf\di;
+namespace di;
 
 class Container {
    /**
