@@ -23,11 +23,17 @@ class ContainerText extends NaF_TestCase
 
     public function testCreateNestedObject()
     {
-        $cnt = new di\Container();
         include TESTROOT . '/help/ObjectWithDependency.php';
         $obj = $this->cnt->create('ObjectWithDependency');
 
         $this->assertTrue($obj instanceof ObjectWithDependency);
+    }
+
+    public function testCreateNafObject()
+    {
+        $obj = $this->cnt->create('http\Request');
+
+        $this->assertTrue($obj instanceof http\Request);
     }
 }
 ?>
