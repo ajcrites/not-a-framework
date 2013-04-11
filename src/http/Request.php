@@ -1,4 +1,4 @@
 <?php
-namespace http;
+namespace Naf\http;
 class Request {}
 ?>

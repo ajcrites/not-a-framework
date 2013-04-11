@@ -4,12 +4,12 @@ class ContainerText extends NaF_TestCase
     private $cnt;
     public function setUp()
     {
-        $this->cnt = new di\Container();
+        $this->cnt = new Naf\di\Container();
     }
 
     public function testContainerCreation()
     {
-        $cnt = new di\Container();
+        $cnt = new Naf\di\Container();
         $this->assertTrue(true, "container created and message reached");
     }
 
@@ -31,9 +31,9 @@ class ContainerText extends NaF_TestCase
 
     public function testCreateNafObject()
     {
-        $obj = $this->cnt->create('http\Request');
+        $obj = $this->cnt->create('Naf\http\Request');
 
-        $this->assertTrue($obj instanceof http\Request);
+        $this->assertTrue($obj instanceof Naf\http\Request);
     }
 }
 ?>
