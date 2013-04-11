@@ -1,6 +1,12 @@
 <?php
 class ContainerText extends NaF_TestCase
 {
+    private $cnt;
+    public function setUp()
+    {
+        $this->cnt = new di\Container();
+    }
+
     public function testContainerCreation()
     {
         $cnt = new di\Container();
@@ -9,9 +15,8 @@ class ContainerText extends NaF_TestCase
 
     public function testCreateSimpleObject()
     {
-        $cnt = new di\Container();
         include TESTROOT . '/help/ObjectCreatedByContainer.php';
-        $obj = $cnt->create('ObjectCreatedByContainer');
+        $obj = $this->cnt->create('ObjectCreatedByContainer');
 
         $this->assertTrue($obj instanceof ObjectCreatedByContainer);
     }
@@ -20,7 +25,7 @@ class ContainerText extends NaF_TestCase
     {
         $cnt = new di\Container();
         include TESTROOT . '/help/ObjectWithDependency.php';
-        $obj = $cnt->create('ObjectWithDependency');
+        $obj = $this->cnt->create('ObjectWithDependency');
 
         $this->assertTrue($obj instanceof ObjectWithDependency);
     }
