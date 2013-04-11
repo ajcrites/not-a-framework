@@ -19,7 +19,6 @@ class ContainerText extends NaF_TestCase
     public function testCreateNestedObject()
     {
         $cnt = new di\Container();
-        include TESTROOT . '/help/ObjectCreatedByContainer.php';
         include TESTROOT . '/help/ObjectWithDependency.php';
         $obj = $cnt->create('ObjectWithDependency');
 

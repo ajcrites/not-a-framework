@@ -65,7 +65,7 @@ class Container {
             return $this->objects[$className];
          }
       }
-      $class = new ReflectionClass($className);
+      $class = new \ReflectionClass($className);
 
       if (isset($this->params[$className])) {
          return $class->newInstanceArgs($this->params[$className]);
