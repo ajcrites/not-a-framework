@@ -11,10 +11,20 @@ namespace Naf\http;
  */
 class Request
 {
-   /**
-    * @var array requested parameters unfolded from path info string
-    */
-   private $parameters = array();
+    /**
+     * @var server request method
+     */
+    private $method;
+
+    /**
+     * @var path info
+     */
+    private $path;
+    
+    /**
+     * @var array requested parameters unfolded from path info string
+     */
+    private $parameters = array();
 
     /**
      * Set up Request defaults
@@ -23,8 +33,8 @@ class Request
      */
     public function __construct($path, $method)
     {
-        $this->parameters['PATH'] = $path;
-        $this->parameters['METHOD'] = $method;
+        $this->path = $path;
+        $this->method = $method;
     }
 
     /**
@@ -42,6 +52,22 @@ class Request
             throw new RequestException("Route '$request->ROUTE' was matched against the request: '$request->PATH', but the controller and/or action is missing");
         }
         return $request;
+    }
+
+    /**
+     * Get the path info
+     */
+    public function getPath()
+    {
+        return $this->path;
+    }
+
+    /**
+     * Get the request method
+     */
+    public function getMethod()
+    {
+        return $this->method;
     }
 
     /**
