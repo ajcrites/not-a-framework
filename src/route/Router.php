@@ -47,7 +47,7 @@ class Router
      */
     public function route(\Naf\http\Request $request)
     {
-        $path = $this->cleanPath($request->PATH);
+        $path = $this->cleanPath($request->getPath());
 
         //Use default route when empty path requested
         if (empty($path)) {
