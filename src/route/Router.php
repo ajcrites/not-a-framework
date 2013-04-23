@@ -36,18 +36,18 @@ class Router
      * Create array representing the path from user agent requested (usually) path
      * Pieces are separated by slashes and empty paths are thrown out
      */
-    public static function cleanPath($path)
+    public function cleanPath($path)
     {
         //array_values re-orders pieces from zero
-        return array_values(array_filter(explode('/', $path)));
+        return array_values(array_filter(explode('/', $path), function ($elem) { return $elem !== ''; }));
     }
 
     /**
      * Route the provided request based on its path
      */
-    public function route(Naf\http\Request $request)
+    public function route(\Naf\http\Request $request)
     {
-        $path = self::cleanPath($request->PATH);
+        $path = $this->cleanPath($request->PATH);
 
         //Use default route when empty path requested
         if (empty($path)) {
@@ -74,12 +74,12 @@ class Router
     }
 
     /**
-     * Determine whether an matching route for the provided path has been found
+     * Determine whether a matching route for the provided path has been found
      */
     public function found($path, $definitionString, $values)
     {
         $parameters = array();
-        $definition = self::cleanPath($definitionString);
+        $definition = $this->cleanPath($definitionString);
 
         //requested path is shorter than definition
         //Values starting with : are optional
