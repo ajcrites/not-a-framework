@@ -20,7 +20,7 @@ class Request
      * @var path info
      */
     private $path;
-    
+
     /**
      * @var array requested parameters unfolded from path info string
      */
@@ -49,7 +49,7 @@ class Request
 
         $request = $router->route($request);
         if (!$request->CONTROLLER || !$request->ACTION) {
-            throw new RequestException("Route '$request->ROUTE' was matched against the request: '$request->PATH', but the controller and/or action is missing");
+            throw new RequestException("Route '$request->ROUTE' was matched against the request: '{$request->getPath()}', but the controller and/or action is missing");
         }
         return $request;
     }
@@ -81,8 +81,8 @@ class Request
             return $this->parameters[$name];
         }
         else if ($name == 'headers') {
-         return array();
-      }
+            return array();
+        }
    }
 
     /**
