@@ -39,7 +39,7 @@ class Router
     public function cleanPath($path)
     {
         //array_values re-orders pieces from zero
-        return array_values(array_filter(explode('/', $path)));
+        return array_values(array_filter(explode('/', $path), function ($elem) { return $elem !== ''; }));
     }
 
     /**
