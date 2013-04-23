@@ -7,7 +7,7 @@
  * container for NaF that uses type hinting to
  * record and create dependencies.
  */
-class ContainerText extends NaF_TestCase
+class ContainerTest extends Naf_TestCase
 {
     private $cnt;
     public function setUp()

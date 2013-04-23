@@ -27,7 +27,7 @@ class Router
     /**
      * Create a Router with the provided available route definitions
      */
-    public function __construct(Naf\route\RouteMatcher $matcher, $routes)
+    public function __construct(RouteMatcher $matcher, $routes)
     {
         $this->routes = $routes;
     }
@@ -45,7 +45,7 @@ class Router
     /**
      * Route the provided request based on its path
      */
-    public function route(Naf\http\Request $request)
+    public function route(\Naf\http\Request $request)
     {
         $path = $this->cleanPath($request->PATH);
 
