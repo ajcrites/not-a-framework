@@ -26,10 +26,10 @@ class Response
         $this->head = $head;
     }
 
-    public function create($head, Naf\di\Container $container, $body = "\Naf\http\body\EmptyBody")
+    public static function create($head, \Naf\di\Container $container, $body = "\Naf\http\body\EmptyBody")
     {
         $response = new self($head);
-        $reponse->setView($container->create($body));
+        $response->setBody($container->create($body));
     }
 
     public function setBody(body\Body $body)
