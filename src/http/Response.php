@@ -26,10 +26,11 @@ class Response
         $this->head = $head;
     }
 
-    public static function create($head, \Naf\di\Container $container, $body = "\Naf\http\body\EmptyBody")
+    public static function create($head, \Naf\di\Container $container, $body = '\Naf\http\body\EmptyBody')
     {
         $response = new self($head);
         $response->setBody($container->create($body));
+        return $response;
     }
 
     public function setBody(body\Body $body)
@@ -39,7 +40,7 @@ class Response
 
     public function emit()
     {
-        foreach ((array)$this->headers as $header) {
+        foreach ((array)$this->head as $header) {
             header($header);
         }
         $this->body->emit();

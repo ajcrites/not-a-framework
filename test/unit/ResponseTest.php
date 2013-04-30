@@ -7,8 +7,16 @@ class ResponseTest extends Naf_TestCase
 {
     public function testCreateResponse()
     {
-        new Naf\http\Response(array());
-        Naf\http\Response::create(array(), new Naf\di\Container);
+        $response = new Naf\http\Response(array());
+        $this->assertTrue($response instanceof Naf\http\Response);
+        $response = Naf\http\Response::create(array(), new Naf\di\Container);
+        $this->assertTrue($response instanceof Naf\http\Response);
+    }
+
+    public function testEmptyBody()
+    {
+        $response = Naf\http\Response::create(array(), new Naf\di\Container);
+        $this->assertEquals($response->emit(), '');
     }
 }
 ?>
