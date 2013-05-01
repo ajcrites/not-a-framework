@@ -1,6 +1,7 @@
 <?php
 /**
- * The purpose of this file is to define the session container class
+ * The purpose of this file is to define a session container class
+ * for accessing scalar values
  * @author Andrew Crites <explosion-pills@aysites.com>
  * @package naf
  */
@@ -9,7 +10,7 @@ namespace Naf\session;
 /**
  * Session handling class
  */
-class Session {
+class ScalarSession {
    /**
     * @var namespace of _SESSION (**not** session_name)
     */
