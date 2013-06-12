@@ -29,6 +29,7 @@ class Router
      */
     public function __construct(RouteMatcher $matcher, $routes)
     {
+        $this->matcher = $matcher;
         $this->routes = $routes;
     }
 
@@ -50,7 +51,7 @@ class Router
         $path = $this->cleanPath($request->getPath());
 
         //Use default route when empty path requested
-        if (empty($path)) {
+        if (empty($path) && isset($this->routes['default'])) {
             foreach ($this->routes['default'] as $name => $value) {
                 $request->$name = $value;
             }
@@ -99,7 +100,7 @@ class Router
                 //Special handling for the `is` rule since it is so common
                 //and an additional parameter often not needed
                 if (!is_array($values['match'][$name])) {
-                    if (!$this->$matcher->is($piece, $name)) {
+                    if (!$this->matcher->is($piece, $name)) {
                         return false;
                     }
                 }
@@ -115,7 +116,7 @@ class Router
         }
 
         //Request will be created from default parameters overwritten by path-provided ones
-        return array_merge(array('route' => $definitionString), $values['default'], $parameters);
+        return array_merge(array('route' => $definitionString), isset($values['default']) ? $values['default'] : array(), $parameters);
     }
 }
 ?>
